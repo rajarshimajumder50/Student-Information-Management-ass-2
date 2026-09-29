@@ -1,0 +1,500 @@
+/* StudentCard.css - Mobile-First Refinements */
+
+.student-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.student-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 24px -6px rgba(15, 23, 42, 0.08), 0 6px 10px -4px rgba(15, 23, 42, 0.04);
+  border-color: #cbd5e1;
+}
+
+/* Dynamic Accent Bar on Top */
+.card-accent-bar {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  transition: height 0.2s ease;
+}
+
+.student-card:hover .card-accent-bar {
+  height: 5px;
+}
+
+.student-card.cgpa-elite .card-accent-bar {
+  background: linear-gradient(90deg, #10b981, #059669, #eab308);
+}
+
+.student-card.cgpa-outstanding .card-accent-bar {
+  background: linear-gradient(90deg, #059669, #10b981);
+}
+
+.student-card.cgpa-distinction .card-accent-bar {
+  background: linear-gradient(90deg, #6366f1, #3b82f6);
+}
+
+.student-card.cgpa-firstclass .card-accent-bar {
+  background: linear-gradient(90deg, #0284c7, #38bdf8);
+}
+
+.student-card.cgpa-good .card-accent-bar {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+/* Card Header Section */
+.card-header-section {
+  padding: 1.15rem 1.15rem 0.5rem 1.15rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.85rem;
+}
+
+/* Avatar: scales proportionally, never stretches or distorts */
+.avatar-wrapper {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  padding: 2.5px;
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.student-card:hover .avatar-wrapper {
+  transform: scale(1.04);
+}
+
+.student-card.cgpa-elite .avatar-wrapper {
+  background: linear-gradient(135deg, #10b981, #f59e0b);
+}
+
+.student-card.cgpa-outstanding .avatar-wrapper {
+  background: linear-gradient(135deg, #10b981, #34d399);
+}
+
+.student-avatar {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  background-color: #f1f5f9;
+  display: block;
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 12px;
+  height: 12px;
+  background-color: #10b981;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+}
+
+/* Header details with min-width: 0 to allow child ellipsis */
+.header-meta-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Special Badge (e.g. Dean's List, Honors) with text truncation */
+.special-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #7c2d12;
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badge-sparkle {
+  color: #d97706;
+  flex-shrink: 0;
+}
+
+/* Department Badge with strict text truncation (ellipsis) */
+.dept-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 8px;
+  text-align: right;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+}
+
+.dept-cs {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.dept-ai {
+  background-color: #f5f3ff;
+  color: #6d28d9;
+  border: 1px solid #ddd6fe;
+}
+
+.dept-ec {
+  background-color: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #ffedd5;
+}
+
+.dept-me {
+  background-color: #f8fafc;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+}
+
+.dept-bt {
+  background-color: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+.dept-ee {
+  background-color: #fefce8;
+  color: #a16207;
+  border: 1px solid #fef08a;
+}
+
+.dept-ce {
+  background-color: #ecfeff;
+  color: #0e7490;
+  border: 1px solid #a5f3fc;
+}
+
+.dept-default {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+/* Card Body Section */
+.card-body-section {
+  padding: 0.65rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+/* Student Name with strict text truncation (ellipsis) */
+.student-name {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  font-size: 0.74rem;
+  font-weight: 500;
+  padding: 0.22rem 0.5rem;
+  border-radius: 6px;
+  color: #475569;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  white-space: nowrap;
+}
+
+.meta-icon {
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.roll-pill {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 600;
+  color: #334155;
+}
+
+.email-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  color: #64748b;
+  margin-top: 0.1rem;
+  min-width: 0;
+}
+
+.email-icon {
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
+.email-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+/* Card CGPA Indicator Section */
+.card-cgpa-section {
+  margin: 0.5rem 1.15rem 1.15rem 1.15rem;
+  padding: 0.75rem 0.9rem;
+  background-color: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  transition: all 0.2s ease;
+}
+
+.student-card:hover .card-cgpa-section {
+  background-color: #f1f5f9;
+}
+
+.student-card.cgpa-elite .card-cgpa-section {
+  background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+  border-color: #a7f3d0;
+}
+
+.student-card.cgpa-outstanding .card-cgpa-section {
+  background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+  border-color: #bbf7d0;
+}
+
+.student-card.cgpa-distinction .card-cgpa-section {
+  background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%);
+  border-color: #c7d2fe;
+}
+
+.student-card.cgpa-firstclass .card-cgpa-section {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-color: #bae6fd;
+}
+
+.student-card.cgpa-good .card-cgpa-section {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border-color: #fde68a;
+}
+
+.cgpa-top-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.cgpa-tier-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.student-card.cgpa-elite .cgpa-tier-indicator,
+.student-card.cgpa-outstanding .cgpa-tier-indicator {
+  color: #047857;
+}
+
+.student-card.cgpa-distinction .cgpa-tier-indicator {
+  color: #4338ca;
+}
+
+.student-card.cgpa-firstclass .cgpa-tier-indicator {
+  color: #0369a1;
+}
+
+.student-card.cgpa-good .cgpa-tier-indicator {
+  color: #b45309;
+}
+
+.cgpa-badge-display {
+  display: flex;
+  align-items: baseline;
+  gap: 0.15rem;
+  flex-shrink: 0;
+}
+
+.cgpa-val {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.student-card.cgpa-elite .cgpa-val,
+.student-card.cgpa-outstanding .cgpa-val {
+  color: #047857;
+}
+
+.student-card.cgpa-distinction .cgpa-val {
+  color: #4338ca;
+}
+
+.student-card.cgpa-firstclass .cgpa-val {
+  color: #0369a1;
+}
+
+.student-card.cgpa-good .cgpa-val {
+  color: #b45309;
+}
+
+.cgpa-scale {
+  font-size: 0.72rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* CGPA Progress bar track */
+.cgpa-progress-track {
+  width: 100%;
+  height: 6px;
+  background-color: rgba(0, 0, 0, 0.07);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.cgpa-progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background-color: #6366f1;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.student-card.cgpa-elite .cgpa-progress-fill {
+  background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.student-card.cgpa-outstanding .cgpa-progress-fill {
+  background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.student-card.cgpa-distinction .cgpa-progress-fill {
+  background: linear-gradient(90deg, #6366f1, #3b82f6);
+}
+
+.student-card.cgpa-firstclass .cgpa-progress-fill {
+  background: linear-gradient(90deg, #0284c7, #38bdf8);
+}
+
+.student-card.cgpa-good .cgpa-progress-fill {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.cgpa-bottom-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 600;
+  gap: 0.5rem;
+}
+
+.cgpa-percentile {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+/* Mobile Screen Refinements (<= 768px) */
+@media (max-width: 768px) {
+  .card-header-section {
+    padding: 1rem 1rem 0.4rem 1rem;
+    gap: 0.75rem;
+  }
+
+  .avatar-wrapper {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    min-height: 52px;
+  }
+
+  .card-body-section {
+    padding: 0.5rem 1rem;
+  }
+
+  .student-name {
+    font-size: 1.05rem;
+  }
+
+  .dept-badge {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .special-badge {
+    font-size: 0.66rem;
+    padding: 0.15rem 0.45rem;
+  }
+
+  .card-cgpa-section {
+    margin: 0.4rem 1rem 1rem 1rem;
+    padding: 0.7rem 0.8rem;
+  }
+
+  .cgpa-val {
+    font-size: 1.2rem;
+  }
+}

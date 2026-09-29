@@ -1,0 +1,89 @@
+/* StudentList.css */
+
+.student-list-section {
+  width: 100%;
+}
+
+/* 
+  Requirement 1: Responsive Grid Layout (StudentList)
+  - Mobile screens (up to 768px): 1-column layout (cards take 100% width)
+  - Tablets (769px to 1024px): 2-column layout
+  - Desktops (1025px and above): 3 or 4-column layout
+*/
+
+/* 1. Mobile-First Base (up to 768px): Strictly 1-column layout */
+.students-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* 2. Tablets (769px to 1024px): Strictly 2-column layout */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .students-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* 3. Desktops (1025px and above): 3-column layout */
+@media (min-width: 1025px) {
+  .students-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* 4. Large Desktops (1360px and above): 4-column layout */
+@media (min-width: 1360px) {
+  .students-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* Empty State Handling */
+.empty-state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 2px dashed #cbd5e1;
+  margin: 1rem 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.empty-icon-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #fef2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.empty-icon {
+  color: #ef4444;
+}
+
+.empty-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.empty-description {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.92rem;
+  max-width: 400px;
+}
